@@ -1,0 +1,493 @@
+// Variables
+$primary-color: #ff5722;
+$secondary-color: #6c757d;
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$text-muted: #6c757d;
+$border-radius: 12px;
+
+// Global styles
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    line-height: 1.6;
+    color: #333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// Navbar styles
+.navbar-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    
+    &.navbar-hidden {
+        transform: translateY(-100%);
+    }
+}
+
+.navbar {
+    padding: 1rem 0;
+    
+    .navbar-brand {
+        font-weight: 700;
+        color: #333 !important;
+        font-size: 1.25rem;
+        
+        .brand-text {
+            margin-left: 0.5rem;
+        }
+    }
+    
+    .nav-link {
+        color: #333 !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem !important;
+        transition: color 0.3s ease;
+        
+        &:hover,
+        &.active {
+            color: $primary-color !important;
+        }
+    }
+    
+    .btn-register {
+        background-color: $primary-color;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: $border-radius;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// Main content
+.main-content {
+    padding-top: 80px; // Account for fixed navbar
+}
+
+// Section labels
+.section-label {
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+// About Hero Section
+.about-hero {
+    padding: 5rem 0;
+    
+    .hero-image-container {
+        position: relative;
+        
+        .hero-main-image {
+            position: relative;
+            z-index: 1;
+            
+            img {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+        }
+        
+        .floating-card {
+            position: absolute;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            
+            &.floating-card-1 {
+                top: 20%;
+                left: -10%;
+                width: 200px;
+                animation: float1 6s ease-in-out infinite;
+            }
+            
+            &.floating-card-2 {
+                bottom: 15%;
+                right: -5%;
+                width: 180px;
+                animation: float2 5s ease-in-out infinite;
+            }
+        }
+    }
+    
+    .hero-content {
+        padding-right: 2rem;
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .lead {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+    }
+}
+
+// Floating animations
+@keyframes float1 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(-1deg);
+    }
+}
+
+// Statistics Section
+.statistics-section {
+    padding: 5rem 0;
+    
+    .stat-card {
+        transition: transform 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+// About Us Section
+.about-us-section {
+    padding: 5rem 0;
+    
+    .about-image {
+        img {
+            border-radius: $border-radius;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+    }
+    
+    h2 {
+        color: #333;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+}
+
+// Mission Section
+.mission-section {
+    padding: 5rem 0;
+    
+    .mission-image {
+        img {
+            border-radius: $border-radius;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+    }
+    
+    h2 {
+        color: #333;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+}
+
+// Journey Section
+.journey-section {
+    padding: 5rem 0;
+    
+    .timeline {
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e9ecef;
+            flex-direction: column;
+            
+            &:last-child {
+                border-bottom: none;
+            }
+            
+            .timeline-year {
+               color:  $primary-color;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: $border-radius;
+                font-weight: 700;
+                margin-right: 2rem;
+                min-width: 80px;
+                text-align: center;
+            }
+            
+            .timeline-content {
+                flex: 1;
+                
+                h4 {
+                    color: #333;
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+// Partners Section
+.partners-section {
+    padding: 5rem 0;
+    
+    .partner-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: $border-radius;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-5px);
+        }
+        
+        .partner-icon {
+            margin-bottom: 1.5rem;
+            
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        h4 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// Press Section
+.press-section {
+    padding: 5rem 0;
+    
+    .press-card {
+        background: white;
+        padding: 2rem;
+        border-radius: $border-radius;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        height: 100%;
+        
+        &:hover {
+            transform: translateY(-5px);
+        }
+        
+        .press-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            
+            img {
+                margin-right: 0.75rem;
+            }
+        }
+        
+        h4 {
+            color: #333;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// App Download Section
+.app-download {
+    padding: 3rem 0;
+    border-top: 1px solid #e9ecef;
+    
+    .app-buttons {
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: $border-radius;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+// Footer
+.footer {
+    background-color: #f8f9fa !important;
+    padding: 3rem 0 2rem;
+    
+    h5 {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    
+    ul {
+        li {
+            margin-bottom: 0.5rem;
+            
+            a {
+                transition: color 0.3s ease;
+                
+                &:hover {
+                    color: $primary-color !important;
+                }
+            }
+        }
+    }
+    
+    .city-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+        
+        .city-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        span {
+            color: #333;
+            font-size: 0.95rem;
+        }
+    }
+    
+    hr {
+        border-color: #e9ecef;
+        opacity: 1;
+    }
+    
+    .text-muted {
+        color: #6c757d !important;
+        font-size: 0.875rem;
+    }
+}
+
+// Buttons
+.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    border-radius: $border-radius;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    
+    &:hover {
+        background-color: darken($primary-color, 10%);
+        border-color: darken($primary-color, 10%);
+        transform: translateY(-2px);
+    }
+}
+
+.btn-danger {
+    border-radius: $border-radius;
+    font-weight: 600;
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.btn-dark {
+    border-radius: $border-radius;
+    font-weight: 600;
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+// Animation elements
+.animate-element {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .about-hero {
+        .hero-content {
+            padding-right: 0;
+            margin-top: 2rem;
+        }
+    }
+    
+    .timeline {
+        .timeline-item {
+            flex-direction: column;
+            
+            .timeline-year {
+                margin-right: 0;
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+        }
+    }
+    
+    .app-buttons {
+        text-align: center !important;
+        
+        .btn {
+            display: block;
+            margin-bottom: 1rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
